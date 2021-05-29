@@ -9,7 +9,7 @@ See: https://hakuneko.download/docs/install/#user-data
 (async function() {
     const manganel = Engine.Connectors.find(connector => connector.id === 'manganel');
     await manganel._getUpdatedMangasFromFile();
-    if(!manganel.mangaCache || !manganel.mangaCache.length || manganel.mangaCache.some(manga => manga.id.includes('manganelo.com/manga/'))) {
+    if(!manganel.mangaCache || !manganel.mangaCache.length || manganel.mangaCache.some(manga => manga.id.includes('/manga/'))) {
         return console.error('Failed to migrate bookmarks from manganel to manganato! Please synchronize (update) the manga list from manganato with HakuNeko firdt before running this script.');
     }
     for(let bookmark of Engine.BookmarkManager.bookmarks) {
