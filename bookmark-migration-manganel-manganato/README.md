@@ -15,7 +15,7 @@ See: https://hakuneko.download/docs/install/#user-data
     for(let bookmark of Engine.BookmarkManager.bookmarks) {
         if(bookmark.key.connector === 'manganel' && (bookmark.key.manga.includes('manganelo.com/manga/') || bookmark.key.manga.startsWith('/manga/'))) {
             try {
-                const matches = manganel.mangaCache.filter(manga => manga.title === bookmark.title.manga);
+                const matches = manganel.mangaCache.filter(manga => manga.title.toLowerCase() === bookmark.title.manga.toLowerCase());
                 if(matches.length === 0) {
                     console.warn('Bookmark not updated (need to be done manually in HakuNeko)! No matching manga found for:', bookmark.title.manga);
                 }
