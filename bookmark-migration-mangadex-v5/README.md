@@ -9,8 +9,8 @@ See: https://hakuneko.download/docs/install/#user-data
     for(let bookmark of Engine.BookmarkManager.bookmarks) {
         if(bookmark.key.connector === 'mangadex' && !bookmark.key.manga.includes('-')) {
             try {
-                const oldID = parseInt(bookmark.key.manga.match(/\d+/));
                 await new Promise(resolve => setTimeout(resolve, 250)); // throttle, max. 5 req/sec
+                const oldID = parseInt(bookmark.key.manga.match(/\d+/));
                 const response = await fetch('https://api.mangadex.org/legacy/mapping', {
                     method: 'POST',
                     body: JSON.stringify({ type: 'manga', ids: [ oldID ] }),
