@@ -17,8 +17,8 @@ See: https://hakuneko.download/docs/install/#user-data
                     headers: { 'content-type': 'application/json' }
                 });
                 const data = await response.json();
-                if(data[0].result === 'ok' && data[0].data.attributes.legacyId === oldID) {
-                    bookmark.key.manga = data[0].data.attributes.newId;
+                if(data.result === 'ok' && data.data[0].attributes.legacyId === oldID) {
+                    bookmark.key.manga = data.data[0].attributes.newId;
                     console.log('Updated:', bookmark.title.manga, '|', oldID, '=>', bookmark.key.manga);
                 } else {
                     throw new Error('Failed to get new ID from MangaDex API');
